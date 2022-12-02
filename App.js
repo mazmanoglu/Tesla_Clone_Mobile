@@ -1,13 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, requireNativeComponent, StyleSheet, Text, View } from 'react-native';
-import CarItem from './components/carItems'; //caritem dan sonra index yazmadik cunku bu path in default degeri index.js
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+
+import CarsList from "./components/carsList";
+import Header from "./components/header";
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Header />
 
-      {/* call the components */}
-
+      <CarsList />
       <StatusBar style="auto" />
     </View>
   );
@@ -16,10 +19,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"grey",
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "grey",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
-
-

@@ -1,9 +1,14 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, StatusBar } from "react-native";
+
+//const SCREEN_HEIGHT = Dimensions.get("screen").height; // device height
+const STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24;
+const WINDOW_HEIGHT = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   carContainer: {
     width: "100%",
-    height: "100%",
+    // height: Dimensions.get("window").height,
+    height: WINDOW_HEIGHT + STATUS_BAR_HEIGHT,
   },
   titles: {
     marginTop: "30%",
@@ -18,11 +23,22 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#5c5e62",
   },
+
+  subtitleCTA: {
+    textDecorationLine: "underline",
+  },
+
   image: {
     width: "100%",
     height: "100%",
-    resizeMode: "contain",
+    resizeMode: "cover",
     position: "absolute",
+  },
+
+  buttonContainer: {
+    position: "absolute",
+    bottom: 50,
+    width: "100%",
   },
 });
 
