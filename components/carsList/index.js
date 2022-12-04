@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, FlatList, Dimensions, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Dimensions,
+  StatusBar,
+  Platform,
+} from "react-native";
 import styles from "./style";
 import cars from "./cars";
 import CarItem from "../carItems";
@@ -17,7 +24,11 @@ const CarsList = (props) => {
         snapToAlignment={"start"}
         decelerationRate={"fast"}
         // snapToInterval={Dimensions.get("screen").height}
-        snapToInterval={WINDOW_HEIGHT + STATUS_BAR_HEIGHT}
+        snapToInterval={
+          Platform.OS === "android"
+            ? WINDOW_HEIGHT + STATUS_BAR_HEIGHT
+            : WINDOW_HEIGHT
+        }
         showsVerticalScrollIndicator={false}
       />
     </View>

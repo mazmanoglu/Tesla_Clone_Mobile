@@ -1,6 +1,7 @@
-import { StyleSheet, Dimensions, StatusBar } from "react-native";
+import { StyleSheet, Dimensions, StatusBar, Platform } from "react-native";
 
 //const SCREEN_HEIGHT = Dimensions.get("screen").height; // device height
+const WINDOW_WIDTH = Dimensions.get("window").width;
 const STATUS_BAR_HEIGHT = StatusBar.currentHeight || 24;
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
   carContainer: {
     width: "100%",
     // height: Dimensions.get("window").height,
-    height: WINDOW_HEIGHT + STATUS_BAR_HEIGHT,
+     height: Platform.OS === 'android'? WINDOW_HEIGHT + STATUS_BAR_HEIGHT : WINDOW_HEIGHT,
   },
   titles: {
     marginTop: "30%",
